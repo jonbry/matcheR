@@ -1,0 +1,19 @@
+Package: matcheR
+Type: Package
+Title: Tools for Comparing and Matching Tables and Tibbles
+Version: 0.1.0
+Authors@R: c(
+    person(
+      "Jon", "Bryant",
+      email = "jon@jonbryant.dev",
+      role = c("aut", "cre")
+    )
+  )
+Description: Set of tools for comparing tibbles, identifying the differences,
+    and updating one to match the other.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports: 
+    dplyr,
+    rlang
