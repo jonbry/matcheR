@@ -7,7 +7,7 @@
 #'
 #' @examples
 #' \dontrun{
-#' val <- quote_sql("Jon's)
+#' val <- quote_sql(\"Jon\'s)
 #' }
 quote_sql <- function(text) {
   # Replace single quote with two single quotes

@@ -22,7 +22,7 @@ tibble of database table
 Get Table/View of data
 }
 \examples{
-\donotrun{
+\dontrun{
 get_table(conn, tbl_data, vars_vec)
 }
 }

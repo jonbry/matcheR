@@ -17,7 +17,6 @@
 #' @param df_old Current data frame
 #' @param df_new New date frame that is being checked for new values
 #' @param key Name of column containing unique values similar to primary key
-#' @name compares
 #'
 #' @returns Data frame of values
 #'

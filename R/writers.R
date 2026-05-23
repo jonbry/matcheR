@@ -35,7 +35,7 @@ newData <- function(conn, schema, table, vals) {
 #' @export
 #'
 #' @examples
-#' \donotrun{
+#' \dontrun{
 #' updateData(conn, data.tbl_metrics, df, id, 261, "=")
 #' }
 updateData <- function(conn, table, df, var, condition, operation = "=") {

@@ -15,3 +15,8 @@ Character value with SQL-escaped '
 \description{
 Replace single quote with two single quotes
 }
+\examples{
+\dontrun{
+val <- quote_sql(\"Jon\'s)
+}
+}

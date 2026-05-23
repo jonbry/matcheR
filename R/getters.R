@@ -9,7 +9,7 @@
 #' @export
 #'
 #' @examples
-#' \donotrun{
+#' \dontrun{
 #' get_table(conn, tbl_data, vars_vec)
 #' }
 get_table <- function(conn, tbl, vars, names = FALSE) {

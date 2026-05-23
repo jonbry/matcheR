@@ -26,7 +26,7 @@ The number of rows affected
 Update Data in Database
 }
 \examples{
-\donotrun{
+\dontrun{
 updateData(conn, data.tbl_metrics, df, id, 261, "=")
 }
 }
