@@ -17,3 +17,4 @@ LazyData: true
 Imports: 
     dplyr,
     rlang
+Config/roxygen2/version: 8.0.0
