@@ -1,0 +1,22 @@
+# Package index
+
+## All functions
+
+- [`check_equal()`](https://jonbry.github.io/matcheR/reference/check_equal.md)
+  : Compare two data frames
+- [`check_unique_key()`](https://jonbry.github.io/matcheR/reference/check_unique_key.md)
+  : Check if key is unique
+- [`new_vals()`](https://jonbry.github.io/matcheR/reference/compares.md)
+  [`changed_vals()`](https://jonbry.github.io/matcheR/reference/compares.md)
+  [`old_vals()`](https://jonbry.github.io/matcheR/reference/compares.md)
+  : Changes between two data frames
+- [`deleteData()`](https://jonbry.github.io/matcheR/reference/deleteData.md)
+  : Delete from DB
+- [`get_table()`](https://jonbry.github.io/matcheR/reference/get_table.md)
+  : Get Table/View of data
+- [`newData()`](https://jonbry.github.io/matcheR/reference/newData.md) :
+  Write New Data to Database
+- [`quote_sql()`](https://jonbry.github.io/matcheR/reference/quote_sql.md)
+  : Replace single quote with two single quotes
+- [`updateData()`](https://jonbry.github.io/matcheR/reference/updateData.md)
+  : Update Data in Database
