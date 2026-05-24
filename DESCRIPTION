@@ -17,5 +17,7 @@ LazyData: true
 Imports: 
     dplyr,
     rlang
+    
 Config/roxygen2/version: 8.0.0
+Config/roxygen2/markdown: TRUE
 URL: https://jonbry.github.io/matcheR/
