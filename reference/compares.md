@@ -1,9 +1,8 @@
 # Changes between two data frames
 
-When comparing two data frames, we designate them as `df_old` and
-`df_new`. These functions were originally intended for syncing a remote
-data source with a local one, but generally work for comparing any data
-frames.
+Compares two data frames `df_old` and `df_new`.These functions were
+originally intended for syncing a remote data source with a local one,
+but generally work for comparing any data frames.
 
 - `new_vals(df_old, df_new, key)` finds all of the rows with a value in
   the key column in `df_new` that is not in `df_old`
