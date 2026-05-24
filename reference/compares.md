@@ -1,18 +1,19 @@
 # Changes between two data frames
 
-When comparing two data frames, we designate them as \`df_old\` and
-\`df_new\`. These functions were originally intended for syncing a
-remote data source with a local one, but generally work for comparing
-any data frames.
+When comparing two data frames, we designate them as `df_old` and
+`df_new`. These functions were originally intended for syncing a remote
+data source with a local one, but generally work for comparing any data
+frames.
 
-\* \`new_vals(df_old, df_new, key)\` finds all of the rows with a value
-in the key column in \`df_new\` that is not in \`df_old\`
+- `new_vals(df_old, df_new, key)` finds all of the rows with a value in
+  the key column in `df_new` that is not in `df_old`
 
-\* \`changed_vals(df_old, df_new, key)\` finds all of the rows that have
-the same value in the key column but different data in the other columns
+- `changed_vals(df_old, df_new, key)` finds all of the rows that have
+  the same value in the key column but different data in the other
+  columns
 
-\* \`old_vals(df_old, df_new, key)\` finds all of the rows with a value
-in the key column in \`df_old\` that is not in \`df_new\`
+- `old_vals(df_old, df_new, key)` finds all of the rows with a value in
+  the key column in `df_old` that is not in `df_new`
 
 ## Usage
 
