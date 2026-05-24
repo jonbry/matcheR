@@ -1,9 +1,9 @@
 #' Changes between two data frames
 #'
 #' @description
-#' When comparing two data frames, we designate them as `df_old` and `df_new`.
-#' These functions were originally intended for syncing a remote data source
-#' with a local one, but generally work for comparing any data frames.
+#' Compares two data frames `df_old` and `df_new`.These functions were originally
+#' intended for syncing a remote data source with a local one, but generally
+#' work for comparing any data frames.
 #'
 #' * `new_vals(df_old, df_new, key)` finds all of the rows with a value in the
 #'  key column in `df_new` that is not in `df_old`
@@ -30,17 +30,18 @@
 #' @usage new_vals(df_old, df_new, key)
 #' @export new_vals
 new_vals <- function(df_old, df_new, key) {
+  # Check if key is both data frames
   if (!(key %in% names(df_old)) | !(key %in% names(df_new))) {
     rlang::abort("Key argument is not in both data frames")
   }
-
+  # Check that columns in both data frames are the same
   check_cols(df, df_new)
-
+  # Check that key column is unique
   check_unique_key(df_old[[key]])
-  check_unique_key(df_new)
-
+  check_unique_key(df_new[[key]])
+  # Store value of key
   key_val <- rlang::ensym(key)
-
+  # Key values that are only in df_new
   diffs <- dplyr::setdiff(df_new[[key]], df_old[[key]])
 
   new_vals <- df_new |>

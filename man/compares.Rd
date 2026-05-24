@@ -24,9 +24,9 @@ old_vals(df_old, df_new, key)
 Data frame of values
 }
 \description{
-When comparing two data frames, we designate them as \code{df_old} and \code{df_new}.
-These functions were originally intended for syncing a remote data source
-with a local one, but generally work for comparing any data frames.
+Compares two data frames \code{df_old} and \code{df_new}.These functions were originally
+intended for syncing a remote data source with a local one, but generally
+work for comparing any data frames.
 \itemize{
 \item \code{new_vals(df_old, df_new, key)} finds all of the rows with a value in the
 key column in \code{df_new} that is not in \code{df_old}

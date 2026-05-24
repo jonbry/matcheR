@@ -29,7 +29,22 @@ check_unique_key <- function(id_col) {
   }
 }
 
+#' Check columns of two data frames match
+#' Easily check to make sure data frames have the same columns, no matter the
+#' order. `check_cols` returns nothing unless there is a mismatch, in which it
+#' throws an error. It does not check attributes or class.
+#'
+#' @param df1 First data frame
+#' @param df2 Second data frame
+#'
+#' @returns Throws error if columns don't match
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' check_cols(df1, df2)}
 check_cols <- function(df1, df2) {
+  # Compare sorted column names
   df1_names <- names(df1) |> sort()
   df2_names <- names(df2) |> sort()
 
