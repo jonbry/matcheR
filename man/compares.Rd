@@ -24,18 +24,17 @@ old_vals(df_old, df_new, key)
 Data frame of values
 }
 \description{
-When comparing two data frames, we designate them as `df_old` and `df_new`.
+When comparing two data frames, we designate them as \code{df_old} and \code{df_new}.
 These functions were originally intended for syncing a remote data source
 with a local one, but generally work for comparing any data frames.
-
-* `new_vals(df_old, df_new, key)` finds all of the rows with a value in the
- key column in `df_new` that is not in `df_old`
-
-* `changed_vals(df_old, df_new, key)` finds all of the rows that have the same
- value in the key column but different data in the other columns
-
-* `old_vals(df_old, df_new, key)` finds all of the rows with a value in the
- key column in `df_old` that is not in `df_new`
+\itemize{
+\item \code{new_vals(df_old, df_new, key)} finds all of the rows with a value in the
+key column in \code{df_new} that is not in \code{df_old}
+\item \code{changed_vals(df_old, df_new, key)} finds all of the rows that have the same
+value in the key column but different data in the other columns
+\item \code{old_vals(df_old, df_new, key)} finds all of the rows with a value in the
+key column in \code{df_old} that is not in \code{df_new}
+}
 }
 \examples{
 \dontrun{
