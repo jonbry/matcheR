@@ -35,7 +35,7 @@ new_vals <- function(df_old, df_new, key) {
     rlang::abort("Key argument is not in both data frames")
   }
   # Check that columns in both data frames are the same
-  check_cols(df, df_new)
+  check_cols(df_old, df_new)
   # Check that key column is unique
   check_unique_key(df_old[[key]])
   check_unique_key(df_new[[key]])
@@ -95,29 +95,4 @@ old_vals <- function(df_old, df_new, key) {
   # Return rows from df_new that are in diffs
   remove_vals <- df_old |>
     dplyr::filter(!!key_val %in% diffs)
-}
-
-#' Compare two data frames
-#'
-#' @param df Data frame to compare to
-#' @param df_source Data frame source
-#' @param df_names Vector of names to rename df_source to match df
-#'
-#' Note: You can use dplyr functions in the arguments to make sure the data frames
-#' will match correctly. This is especially important when data is pulled from a db
-#' since order is not guaranteed. This function is a wrapper for testthat::expect_equal
-#' which will check class and values
-#'
-#' @returns pass/fail from testthat::test_that
-#' @export
-#'
-#' @examples
-#' \dontrun{
-#' check_equal(df |> dplyr::arrange(id), df_source |> dplyr::arrnage(id), df_names = names(df))
-#' }
-check_equal <- function(df, df_source, df_names) {
-  testthat::test_that("Data frames are the same", {
-    names(df_source) <- df_names
-    testthat::expect_equal(df, df_source)
-  })
 }
