@@ -23,5 +23,5 @@ get_table <- function(conn, tbl, vars, names = FALSE) {
   if (!(isFALSE(names))) {
     names(df) <- names
   }
-  df <- dplyr::as_tibble(df)
+  df <- tibble::as_tibble(df)
 }
