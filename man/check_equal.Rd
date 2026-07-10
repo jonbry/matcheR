@@ -4,22 +4,17 @@
 \alias{check_equal}
 \title{Compare two data frames}
 \usage{
-check_equal(df, df_source, df_names)
+check_equal(df, df_new, df_names, ...)
 }
 \arguments{
-\item{df}{Data frame to compare to}
+\item{df}{Data frame source or "old"}
 
-\item{df_source}{Data frame source}
+\item{df_new}{New data frame}
 
-\item{df_names}{Vector of names to rename df_source to match df
-
-Note: You can use dplyr functions in the arguments to make sure the data frames
-will match correctly. This is especially important when data is pulled from a db
-since order is not guaranteed. This function is a wrapper for testthat::expect_equal
-which will check class and values}
+\item{df_names}{Vector of names to rename df to match df_new}
 }
 \value{
-pass/fail from testthat::test_that
+TRUE if they match, otherwise tibble of mismatched rows
 }
 \description{
 Compare two data frames
