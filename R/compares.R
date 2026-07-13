@@ -110,11 +110,16 @@ old_vals <- function(df_old, df_new, key) {
 #' check_equal(df |> dplyr::arrange(id), df_source |> dplyr::arrnage(id), df_names = names(df))
 #' }
 check_equal <- function(df, df_new, df_names, ...) {
+  # Update df with df_names
   names(df) <- df_names
+  # Determine if tibbles are equal
   equal <- df == df_new
+  # Mark rows with >= FALSE
   mismatch <- apply(equal, 1, function(row) any(!row))
+  # Return mismatched rows from original df
   df_mis <- df[mismatch, ]
 
+  # Return TRUE if all match
   if (nrow(df_mis) < 1) {
     df_mis <- TRUE
   }
