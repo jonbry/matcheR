@@ -70,7 +70,6 @@ changed_vals <- function(df_old, df_new, key) {
   df_union <- df_new[df_new[[key]] %in% df_old[[key]], ]
   # Return rows that are different in df_new but have the same key val
   diffs <- dplyr::setdiff(df_union, df_old)
-
 }
 #' @name compares
 #' @usage old_vals(df_old, df_new, key)
@@ -99,25 +98,30 @@ old_vals <- function(df_old, df_new, key) {
 
 #' Compare two data frames
 #'
-#' @param df Data frame to compare to
-#' @param df_source Data frame source
-#' @param df_names Vector of names to rename df_source to match df
+#' @param df Data frame source or "old"
+#' @param df_new New data frame
+#' @param df_names Vector of names to rename df to match df_new
 #'
-#' Note: You can use dplyr functions in the arguments to make sure the data frames
-#' will match correctly. This is especially important when data is pulled from a db
-#' since order is not guaranteed. This function is a wrapper for testthat::expect_equal
-#' which will check class and values
-#'
-#' @returns pass/fail from testthat::test_that
+#' @returns TRUE if they match, otherwise tibble of mismatched rows
 #' @export
 #'
 #' @examples
 #' \dontrun{
 #' check_equal(df |> dplyr::arrange(id), df_source |> dplyr::arrnage(id), df_names = names(df))
 #' }
-check_equal <- function(df, df_source, df_names) {
-  testthat::test_that("Data frames are the same", {
-    names(df_source) <- df_names
-    testthat::expect_equal(df, df_source)
-  })
+check_equal <- function(df, df_new, df_names, ...) {
+  # Update df with df_names
+  names(df) <- df_names
+  # Determine if tibbles are equal
+  equal <- df == df_new
+  # Mark rows with >= FALSE
+  mismatch <- apply(equal, 1, function(row) any(!row))
+  # Return mismatched rows from original df
+  df_mis <- df[mismatch, ]
+
+  # Return TRUE if all match
+  if (nrow(df_mis) < 1) {
+    df_mis <- TRUE
+  }
+  df_mis
 }
