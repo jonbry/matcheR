@@ -109,15 +109,27 @@ old_vals <- function(df_old, df_new, key) {
 #' \dontrun{
 #' check_equal(df |> dplyr::arrange(id), df_source |> dplyr::arrnage(id), df_names = names(df))
 #' }
-check_equal <- function(df, df_new, df_names, ...) {
-  # Update df with df_names
-  names(df) <- df_names
+check_equal <- function(df, df_new, key) {
+  # Key value - metaprogramming should avoid this
+  key <- key
+  # Create a super key for comparison
+  super_key <- tibble::tibble(unique(vctrs::vec_c(df[[key]], df_new[[key]])))
+  # Rename key - Should be avoidable in the future
+  names(super_key) <- key
+
+  # Join df with super_key
+  df_sup <- super_key |>
+    dplyr::left_join(df, by = dplyr::join_by(!!key == !!key))
+  # Join df_new with super_key
+  df_new_sup <- super_key |>
+    dplyr::left_join(df_new, by = dplyr::join_by(!!key == !!key))
+
   # Determine if tibbles are equal
-  equal <- df == df_new
+  equal <- df_sup == df_new_sup
   # Mark rows with >= FALSE
   mismatch <- apply(equal, 1, function(row) any(!row))
   # Return mismatched rows from original df
-  df_mis <- df[mismatch, ]
+  df_mis <- df_sup[mismatch, ]
 
   # Return TRUE if all match
   if (nrow(df_mis) < 1) {
